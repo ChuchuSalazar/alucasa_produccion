@@ -2,6 +2,9 @@
 import plotly.express as px
 import pandas as pd
 
+
+
+
 st.set_page_config(page_title="Proceso Laminado", layout="wide")
 
 def create_process_hierarchy():
@@ -60,7 +63,7 @@ def create_process_hierarchy():
 def main():
     st.title("🏭 Proceso de Laminado de Aluminio")
     st.markdown("### Visualización Interactiva Multinivel - Haz clic en los segmentos")
-    
+
     # Crear datos jerárquicos
     df = create_process_hierarchy()
     
@@ -153,6 +156,20 @@ def main():
         for elemento, valor in totales_elementos.items():
             porcentaje = (valor / totales_elementos.sum()) * 100
             st.metric(elemento, f"${valor:,.0f}", f"{porcentaje:.1f}%")
+
+    # Generar código QR con el número de contacto
+    st.markdown("---")
+    st.markdown(
+        f"""
+        <div style='text-align: center; font-size: 14px; color: gray; line-height: 1.6;'>
+            <div><b>Desarrollado por:MSc Jesús Fernando Salazar Rojas</b></div>
+            <div>Economista - Contador Público / Bajo Python 🐍</div>
+            <div>📞 0414-2868869 | ✉️ auditoria_Vzla@gmail.com</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
 
 if __name__ == "__main__":
     main()
